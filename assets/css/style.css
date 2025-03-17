@@ -10087,7 +10087,7 @@ ul.comment-list .th-comment-item:has(.children) .th-post-comment {
 
 .hero-3 .hero-bg-3-1 {
   position: absolute;
-  inset: 0 0 0 310px;
+  inset: 0 0 0 0px;
   z-index: -1;
   background-position: right !important;
   /* Large devices */
