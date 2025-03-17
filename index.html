@@ -609,12 +609,17 @@ Team Area
         </div>
     </section>
     
-    <!-- Add jQuery and AJAX script -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
     $(document).ready(function() {
+        // Add a spinner div to your HTML (you can place this right after your form)
+        $('body').append('<div class="overlay" style="display:none;position:fixed;width:100%;height:100%;top:0;left:0;z-index:999;background:rgba(255,255,255,0.8) url(\'assets/img/loader.gif\') center no-repeat;"></div>');
+        
         $('#registrationForm').submit(function(event) {
             event.preventDefault();
+            
+            // Clear previous messages
+            $('#formMessages').empty();
             
             // Validate form
             if (!this.checkValidity()) {
@@ -623,6 +628,10 @@ Team Area
                 return;
             }
             
+            // Show loading spinner
+            $('.overlay').show();
+            $('body').css('overflow', 'hidden'); // Prevent scrolling while loading
+            
             // Submit form via AJAX
             $.ajax({
                 type: "POST",
@@ -630,20 +639,42 @@ Team Area
                 data: $(this).serialize(),
                 dataType: "json",
                 success: function(response) {
+                    // Hide spinner
+                    $('.overlay').hide();
+                    $('body').css('overflow', 'auto');
+                    
                     if (response.success) {
-                        $('#formMessages').html('<div class="alert alert-success">' + response.message + '</div>');
+                        // Success message with animation
+                        $('#formMessages').html('<div class="alert alert-success">' + response.message + '</div>').hide().fadeIn(500);
                         $('#registrationForm')[0].reset();
+                        
+                        // Scroll to message
+                        $('html, body').animate({
+                            scrollTop: $('#formMessages').offset().top - 100
+                        }, 500);
                     } else {
-                        $('#formMessages').html('<div class="alert alert-danger">' + response.message + '</div>');
+                        // Error message
+                        $('#formMessages').html('<div class="alert alert-danger">' + response.message + '</div>').hide().fadeIn(500);
                     }
                 },
-                error: function() {
-                    $('#formMessages').html('<div class="alert alert-danger">Oops! An error occurred. Please try again later.</div>');
+                error: function(xhr, status, error) {
+                    // Hide spinner
+                    $('.overlay').hide();
+                    $('body').css('overflow', 'auto');
+                    
+                    // Show detailed error message
+                    $('#formMessages').html('<div class="alert alert-danger">Oops! An error occurred. Please try again later.<br><small>Error details: ' + status + '</small></div>').hide().fadeIn(500);
+                },
+                complete: function() {
+                    // Ensure spinner is hidden even if there's an exception
+                    $('.overlay').hide();
+                    $('body').css('overflow', 'auto');
                 }
             });
         });
     });
     </script>
+    
     
 
     <!-- <section class="space" id="stakeholders-sec" data-bg-src="assets/img/bg/gray-bg2.png">
