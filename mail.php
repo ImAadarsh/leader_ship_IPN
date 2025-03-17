@@ -69,13 +69,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['full_name']) && isset(
     <div style="max-width: 600px; margin: auto; background-color: #ffffff; padding: 20px;">
         <!-- Header -->
         <div style="text-align: center; padding-bottom: 20px;">
-            <img src="https://leadership.ipnfoundation.org/black_ls.svg" alt="IPN Leadership Summit Logo" style="max-width: 200px;">
+            <img src="https://leadership.ipnfoundation.org/black_ls.png" alt="IPN Leadership Summit Logo" style="max-width: 200px;">
         </div>
 
-        <!-- Event Banner -->
+        <!-- Event Banner 
         <div style="margin-bottom: 20px;">
             <img src="https://leadership.ipnfoundation.org/banner.jpg" alt="Event Banner" style="width: 100%; border-radius: 5px;">
-        </div>
+        </div> -->
 
         <!-- Content -->
         <div style="padding: 20px; color: #333333;">

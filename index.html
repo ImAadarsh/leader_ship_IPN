@@ -86,7 +86,7 @@
             <div class="container">
                 <div class="menu-area">
                     <div class="header-logo">
-                        <a href="index.html"><img style="height: 85px;" src="black_ls.svg" alt="IPN"></a>
+                        <a href="index.html"><img style="height: 90px;" src="black_ls.svg" alt="IPN"></a>
                     </div>
                     <div class="menu-area-wrap">
                         <nav class="main-menu d-none d-lg-block">
@@ -137,20 +137,34 @@ Hero Area
             <div class="row gx-40 align-items-center">
                 <div class="col-lg-6">
                     <div class="hero-style3">
-                        <span style="color: white;" class="sub-title after-none">Shaping the Future of Education</span>
+                        <span style="color: white;" class="sub-title after-none responsive-text">Shaping the Future of Education</span>
                         <h1 class="hero-title">
-                            <span style="color: white;" class="title1"><span class="text-theme2 d-inline-block">IPN</span> Leadership</span>
-                            <span style="color: white;" class="title2">Summit <span class="text-theme2 d-inline-block">2025</span></span>
+                            <span style="color: white;" class="title1 responsive-text"><span class="text-theme2 d-inline-block">IPN</span> Leadership</span>
+                            <span style="color: white;" class="title2 responsive-text">Summit <span class="text-theme2 d-inline-block">2025</span></span>
                         </h1>
-                        <p style="color: white;" class="hero-text">Pioneering School Education 5.0 through nationwide dialogues, innovative
-                            technologies, and collaborative frameworks for the future of learning</p>
+                        <p style="color: white;" class="hero-text responsive-text">Pioneering School Education 5.0 through nationwide dialogues, innovative technologies, and collaborative frameworks for the future of learning</p>
                         <div class="btn-wrap">
-                            <a href="#register-sec" class="th-btn">Register Now<i
-                                    class="fa-solid fa-arrow-up-right ms-2"></i></a>
-                            <!-- <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn style3 popup-video"><i
-                                    class="fas fa-play"></i></a> -->
+                            <a href="#register-sec" class="th-btn">Register Now<i class="fa-solid fa-arrow-up-right ms-2"></i></a>
                         </div>
                     </div>
+                    
+                    <script>
+                    function adjustTextColor() {
+                        var elements = document.getElementsByClassName('responsive-text');
+                        var textColor = window.innerWidth <= 990 ? 'black' : 'white';
+                        
+                        for (var i = 0; i < elements.length; i++) {
+                            elements[i].style.color = textColor;
+                        }
+                    }
+                    
+                    // Run on page load
+                    adjustTextColor();
+                    
+                    // Run on window resize
+                    window.addEventListener('resize', adjustTextColor);
+                    </script>
+                    
                 </div>
             </div>
         </div>

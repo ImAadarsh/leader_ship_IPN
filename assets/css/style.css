@@ -7945,7 +7945,7 @@ ol.wp-block-rss {
 
 .header-layout2 .sticky-wrapper.sticky {
   background: var(--white-color);
-  padding: 10px 0;
+  padding: 0px 0;
 }
 
 @media (min-width: 1700px) {
